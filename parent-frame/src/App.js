@@ -1,26 +1,29 @@
-import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
+import logo from "./logo.svg";
+import "./App.css";
 import MyWidget from "./widget";
 
-let MyReactWidget = MyWidget.driver('react',{
+let MyReactWidget = MyWidget.driver("react", {
   React: React,
-  ReactDOM: ReactDOM
-})
+  ReactDOM: ReactDOM,
+});
 
-console.log(`Hey this is MyWidget: ${MyReactWidget}`)
+console.log(`Hey this is MyWidget: ${MyReactWidget}`);
 
 function App(props) {
-  const [myThings, setMyThings] = useState(["burger", "fries"])
-  let [widgetName, setWidgetName] = useState('')
-  
-  useEffect(()=> {setWidgetName(window.prompt("What's the child's name?"))}, [])
+  const [myThings, setMyThings] = useState(["burger", "fries"]);
+  let [widgetName, setWidgetName] = useState("");
+
+  useEffect(() => {
+    setWidgetName(window.prompt("What's the child's name?"));
+  }, []);
+
   // console.log(widgetName)
 
-  const widgetFunc = word => setMyThings(myThings => [word, ...myThings])
+  const widgetFunc = (word) => setMyThings((myThings) => [word, ...myThings]);
   // const updateWidgetName = event => {setWidgetName(event.target.value); this.forceUpdate()}
-  
+
   return (
     <div className="App">
       <header className="App-header">
@@ -31,19 +34,32 @@ function App(props) {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           {/* This is my count: {count} */}
-          These are my things: {myThings.map((thing, idx) => {
-            let randColor = Math.floor(Math.random()*16777215).toString(16);
-            
-            return (<span 
-            key={`thing${idx}`} 
-            style={{
-              color:`#${randColor}`,
-              fontWeight: "bold"
-            }}
-            className="randomThing">{thing}; </span>)
-        })}.
+          These are my things:{" "}
+          {myThings.map((thing, idx) => {
+            let randColor = Math.floor(Math.random() * 16777215).toString(16);
+
+            return (
+              <span
+                key={`thing${idx}`}
+                style={{
+                  color: `#${randColor}`,
+                  fontWeight: "bold",
+                }}
+                className="randomThing"
+              >
+                {thing};{" "}
+              </span>
+            );
+          })}
+          .
         </p>
-        {widgetName && <MyReactWidget name={widgetName} passDownFunc={widgetFunc} />}
+        {widgetName && (
+          <MyReactWidget
+            address="0x12dab07f4adf81da9f9a8f0d546831a6d59707e4"
+            artistName={widgetName}
+            passDownFunc={widgetFunc}
+          />
+        )}
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -53,7 +69,6 @@ function App(props) {
           Learn React
         </a>
       </header>
-      
     </div>
   );
 }

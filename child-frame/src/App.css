@@ -9,7 +9,7 @@
 }
 
 .App-header {
-  background-color: #b34606;
+  background-color: #080c0a;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,8 +19,74 @@
   color: rgba(192, 192, 238, 0.822);
 }
 
+footer {
+  margin-top: -3.5%;
+  padding-left: 1%;
+  display: flex;
+  font-size: 0.5rem;
+  background-color: #080c0a;
+  color: white;
+}
+
+#huddln-link a {
+  color: rgb(96, 223, 96);
+  text-decoration: none;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+.card-holder {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: -3%;
+}
+
+.card {
+  margin: 0 1% 0 1%;
+  max-width: 80%;
+  border: 0.3px solid rgb(96, 223, 96);
+  border-radius: 25px;
+  background-color: black;
+  padding: 0.5%;
+}
+
+.card img {
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 25px;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  /* border: 1px solid red; */
+  height: 2.5%;
+  /* align-items: flex-start; */
+}
+
+.card-text h4 {
+  font-size: 0.6rem;
+  margin-top: -0.9%;
+}
+
+.card-text p {
+  font-size: 0.6rem;
+  margin-top: -4%;
+  /* align-self: flex-start; */
+}
+
+.dir-btn {
+  display: flex;
+  align-self: center;
+  background-color: blanchedalmond;
+  color: rgb(96, 223, 96);
+  border-radius: 25px;
+  height: fit-content;
+  font-weight: 300;
 }
 
 @keyframes App-logo-spin {
