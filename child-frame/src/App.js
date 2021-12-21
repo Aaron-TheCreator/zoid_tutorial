@@ -86,7 +86,7 @@ function App(props) {
             img={sample[stack[2]]}
             // metadata={nfts[stack[2]].metadata}
           />
-          {/* remove VVV following if test successful */}
+
           {/* right button */}
           {stack[2] <= sample.length - 2 ? (
             <button
